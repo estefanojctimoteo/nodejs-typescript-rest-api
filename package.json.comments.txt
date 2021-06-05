@@ -1,0 +1,46 @@
+We pass --unhandled-rejections=strict to Node.js 
+(even with Node.js v16+) because in practice, 
+debugging using a straight “crash and show the stack” 
+approach is more straightforward than fancier logging 
+with an expressWinston.errorLogger object. 
+
+This is most often true even in production, 
+where letting Node.js continue to run despite an 
+unhandled rejection is likely to leave the server 
+in an unexpected state, allowing further 
+(and more complicated) bugs to occur.
+
+
+
+
+The debug script calls the start script 
+but first defines a DEBUG environment variable. 
+
+This has the effect of enabling all of our 
+debugLog() statements (plus similar ones from 
+Express.js itself, which uses the same debug 
+module we do) to output useful details to the 
+terminal—details that are (conveniently) 
+otherwise hidden when running the server 
+in production mode with a standard npm start.
+
+Try running npm run debug yourself, and afterward, 
+compare that with npm start to see how the console 
+output changes.
+
+Tip: You can limit the debug output to our app.ts 
+file’s own debugLog() statements using DEBUG=app 
+instead of DEBUG=*. 
+
+The debug module is generally quite flexible, 
+and this feature is no exception.
+
+Windows users will probably need to change 
+the export to SET since export is how it 
+works on Mac and Linux. 
+(original, for Linux -> "debug": "export DEBUG=* && npm run start",)
+(replaced, for Windows -> "debug": "SET DEBUG=* && npm run start",)
+
+If your project needs to support multiple 
+development environments, the cross-env package 
+provides a straightforward solution here.
