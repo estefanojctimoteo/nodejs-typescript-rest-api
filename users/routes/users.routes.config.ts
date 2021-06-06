@@ -1,4 +1,4 @@
-import { CommonRoutesConfig } from '../../common/common.routes.config';
+import { CommonRoutesConfig } from '../../common/routes/common.routes.config';
 import UsersController from '../controllers/users.controller';
 import UsersMiddleware from '../middleware/users.middleware';
 import express from 'express';

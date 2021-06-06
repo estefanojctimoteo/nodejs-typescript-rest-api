@@ -4,7 +4,7 @@ import * as http from 'http';
 import * as winston from 'winston';
 import * as expressWinston from 'express-winston';
 import cors from 'cors';
-import { CommonRoutesConfig } from './common/common.routes.config';
+import { CommonRoutesConfig } from './common/routes/common.routes.config';
 import { UsersRoutesConfig } from './users/routes/users.routes.config';
 import debug from 'debug';
 
